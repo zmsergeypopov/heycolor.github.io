@@ -1,13 +1,169 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Deep Link Test page</title>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>ColorByNumber</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The best colors game">
+  <meta name="keywords" content="color, app, ios, game">
+
+  <meta property="og:site_name" content="clc.heycolor.app">
+
+  <meta property="og:title" content="New content">
+  <meta property="og:description" content="After click">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="com.zephyrmobile.colorbynumber://"/>
+  <meta property="al:ios:url" content="com.zephyrmobile.colorbynumber://"/>
+  <meta property="al:ios:app_store_id" content="1445135380"/>
+  <meta property="al:ios:app_name" content="colorByNumber"/>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Arial Rounded MT Bold';
+      font-style: normal;
+      font-weight: normal;
+      src: local('Arial Rounded MT Bold'), url('./fonts/ARLRDBD_0.woff') format('woff');
+    }
+    html {
+      height: 100%;
+      font-family: 'Arial Rounded MT Bold', sans-serif;
+    }
+
+    body {
+      text-align: center;
+      height: 100%;
+      margin: 0;
+    }
+
+    .bg-box {
+      height: 100%;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-self: center;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      padding-bottom: 0px;
+    }
+    .logo img {
+      max-width: 100%;
+      height: auto;
+    }
+    .logo p {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .button {
+      text-align: center;
+      margin: 0 auto;
+      display: block;
+      height: 54px;
+      width: 280px;
+      box-sizing: border-box;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      transition: background-color 1s;
+
+      font-size: 24px;
+      font-weight: 500;
+      padding-top: 9px;
+      color: #fff;
+      text-decoration: none;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .button.app {
+      background-color: #12b721;
+      border: 3px solid #18992a;
+    }
+
+    .button.download {
+      background-color: #584274;
+      border: 3px solid #403351;
+    }
+
+    .button.app:hover, .button.app:active, .button.app:focus {
+      background-color: #18992a;
+    }
+
+    .button.download:hover, .button.download:active, .button.download:focus {
+      background-color: #403351;
+    }
+
+    .controls #download-links-mobile p {
+      width: 60%;
+      display: block;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .rules {
+      color: rgba(133, 133, 133, 1);
+      font-size: 16px;
+      letter-spacing: 0.6px;
+      padding: 30px 20px 0 20px;
+    }
+
+    @media screen and (device-aspect-ratio: 40/71) {
+      .logo {
+        padding-bottom: 0;
+      }
+      .logo img {
+        max-width: 80%;
+      }
+    }
+  </style>
+
+  <script>
+    var appLink = 'com.zephyrmobile.colorbynumber://links' + window.location.search;
+
+    document.querySelector('meta[property="og:url"]').content = appLink
+    document.querySelector('meta[property="al:ios:url"]').content = appLink
+
+    var uagent = navigator.userAgent.toLowerCase();
+    var linkDownloadAppStore = 'https://itunes.apple.com/app/id1445135380';
+
+    function functionOpen() {
+      if (uagent.search("iphone") > -1 || uagent.search("ipad") > -1 || uagent.search("ipod") > -1) {
+        setTimeout(function () {
+          window.location = linkDownloadAppStore;
+        }, 14000);
+        window.location.href = appLink;
+      }
+    }
+
+    function functionDownload() {
+      window.location.href = linkDownloadAppStore;
+    }
+  </script>
 </head>
-<body>
-<h1>My Deep Link Test page</h1>
 
-<p><a href="https://clc.heycolor.app/?action=claim&id=4612">Open 3</a></p>
-
+<body onload="functionOpen();">
+<div class="bg-box">
+  <div class="content">
+    <div class="logo">
+      <img src="./images/back_banner.png"
+           srcset="./images/back_banner@2x.png 2x, ./images/back_banner@3x.png 3x"
+           alt="Hey Color" />
+    </div>
+    <br><br>
+    <div id="download-links-mobile">
+      <a href="#" onclick="functionOpen()" class="button app">Claim Bonus</a>
+      <a href="#" onclick="functionDownload()" class="button download">Download App</a>
+      <p class="rules">
+        Button not working? Use 3D Touch or press-and-hold to activate the button.
+      </p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
