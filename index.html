@@ -139,24 +139,19 @@
         var linkDownloadPlayMarket = 'https://play.google.com/store/apps/details?id=com.hey.color.number.coloring.paint';
         var ua = window.navigator.userAgent.toLowerCase();
 
-        var isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
         document.querySelector('meta[property="og:url"]').content = appLink
         document.querySelector('meta[property="al:ios:url"]').content = appLink
-        
-        console.log(ua);
-        console.log(appLink);
 
         function functionOpen() {
-            if (ua.search("iphone") > -1 || ua.search("ipad") > -1 || ua.search("ipod") > -1 || isIOS) {
+            if (ua.search("iphone") > -1 || ua.search("ipad") > -1 || ua.search("ipod") > -1) {
                 setTimeout(function () {
                     window.location = linkDownloadAppStore;
-                }, 5000);
+                }, 14000);
                 window.location.href = appLink;
             } else if (ua.search("android") > -1) {
                 setTimeout(function () {
                     window.location = linkDownloadPlayMarket;
-                }, 5000);
+                }, 14000);
                 window.location.href = appLink;
             }
         }
