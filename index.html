@@ -154,11 +154,6 @@
                 }, 5000);
                 window.location.href = appLink;
             } else if (ua.search("android") > -1) {
-                var elsShowIOS = document.getElementsByClassName('button app');
-                for (var i = 0; i < elsShowIOS.length; i++) {
-                    elsShowIOS[i].style.display = 'none';
-                }
-
                 setTimeout(function () {
                     window.location = linkDownloadPlayMarket;
                 }, 5000);
